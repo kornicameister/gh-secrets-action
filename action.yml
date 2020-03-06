@@ -1,0 +1,18 @@
+---
+name: GH Secrets
+description: |
+  Creates and updates your repository secrets.
+  Ideal to setup some dynamic credentials in CI jobs :)
+inputs:
+  pa-token:
+    description: |
+      Due to the scope of a token accessible in Github Actions
+      context, a personal access token is required to make this action work
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.pa-token }}
+branding:
+  icon: "shield"
+  color: "green"
