@@ -25,9 +25,12 @@ jobs:
     steps:
     - uses: actions/checkout@latest
     - name: Build image
-      run: docker build \
-        --file Dockerfile \
-        --tag ${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION }} \
-         .
+      run: |
+        docker build \
+          --file Dockerfile \
+          --tag ${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION }} \
+          .
     - name: Deploy image
       if: github.event_name == 'push'
+      run: |
+        echo "Coming up"
