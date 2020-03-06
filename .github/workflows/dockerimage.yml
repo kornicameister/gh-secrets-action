@@ -1,0 +1,33 @@
+---
+name: Docker
+
+'on':
+  push:
+    branches: 
+      - master
+  pull_request:
+    branches: 
+      - master
+
+env:
+  IMAGE_NAME: kornicameister/gh-secrets-action
+  IMAGE_VERSION: $(date +%s)
+
+jobs:
+  lint:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@latest
+    - uses: brpaz/hadolint-action@latest
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@latest
+    - name: Build image
+      run: docker build \
+        --file Dockerfile \
+        --tag ${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION }} \
+         .
+    - name: Deploy image
+      if: github.event_name == 'push'
