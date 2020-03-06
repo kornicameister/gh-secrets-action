@@ -3,34 +3,48 @@ name: Docker
 
 'on':
   push:
-    branches: 
-      - master
+    branches: [ master ]
   pull_request:
-    branches: 
-      - master
+    branches: [ master ]
+  release:
+    types: [ published ]
 
 env:
   IMAGE_NAME: kornicameister/gh-secrets-action
-  IMAGE_VERSION: $(date +%s)
 
 jobs:
   lint:
-    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: brpaz/hadolint-action@v1.0.2
   build:
     runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    env:
+        IMAGE_VERSION_NEXT: $(date +%s)
     steps:
     - uses: actions/checkout@v2
-    - name: Build image
+    - uses: elgohr/Publish-Docker-Github-Action@2.13
+      with:
+        name: ${{ env.IMAGE_VERSION_NEXT }}
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}    
+        snapshot: true
+        tags: "latest"    
+  release:    
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release'
+    steps:
+    - uses: actions/checkout@v2
+    - name: Pull latest
       run: |
-        docker build \
-          --file Dockerfile \
-          --tag ${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION }} \
-          .
-    - name: Deploy image
+        docker pull ${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION_LATEST }}
+    - name: Publish latest
       if: github.event_name == 'push'
-      run: |
-        echo "Coming up"
+      uses: elgohr/Publish-Docker-Github-Action@2.13
+      with:
+        name: ${{ env.IMAGE_VERSION_NEXT }}
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}    
+        tag_semver: true
