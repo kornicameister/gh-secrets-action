@@ -4,10 +4,17 @@ description: |
   Creates and updates your repository secrets.
   Ideal to setup some dynamic credentials in CI jobs :)
 inputs:
-  pa-token:
+  token:
     description: |
       Due to the scope of a token accessible in Github Actions
-      context, a personal access token is required to make this action work
+      context, a personal access token is required to make this action work.
+
+      This token should be have at least `repo` scope.
+  secrets:
+    description: |
+      key: value map where:
+        key - a name of the secret, as visible in Github's secrets page
+        value - a value for that secret
 runs:
   using: docker
   image: Dockerfile
