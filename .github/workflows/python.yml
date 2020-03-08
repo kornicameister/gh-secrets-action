@@ -21,7 +21,7 @@ jobs:
         run: |
           pip check
           flake8 ghsa/
-          mypy -p ghsa
-          black --check ghsa/
+          mypy ghsa/
+          yapf -dr ghsa
           safety check -r requirements.txt
         working-directory: python/

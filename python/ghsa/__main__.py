@@ -5,6 +5,7 @@ import typing as t
 import requests as r
 from nacl import encoding, public
 
+
 def main(
         secrets: t.Dict[str, str],
         gh_repository: str,
