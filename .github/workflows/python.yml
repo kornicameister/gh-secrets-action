@@ -1,6 +1,10 @@
 ---
 name: Python
 
+"on":
+  push:
+  pull_request:
+
 jobs:
   Lint:
     runs-on: ubuntu-latest
