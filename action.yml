@@ -31,7 +31,7 @@ runs:
     - ${{ inputs.gh-repository }}
     - ${{ inputs.gh-token }}
     - ${{ inputs.gh-secrets }}
-    
+
 branding:
   icon: "shield"
   color: "green"
