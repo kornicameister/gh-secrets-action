@@ -22,4 +22,5 @@ jobs:
           flake8 ghsa/
           mypy -p ghsa
           black --check ghsa/
+          safety check -r requirements.txt
         working-directory: python/
