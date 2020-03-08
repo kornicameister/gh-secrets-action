@@ -1,0 +1,21 @@
+---
+name: Python
+
+jobs:
+  Lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt -r test-requirements.txt
+        working-directory: python/
+      - name: Lint
+        run: |
+          pip check
+          flake8 ghsa/
+          mypy -p ghsa
+          black --check ghsa/
+        working-directory: python/
