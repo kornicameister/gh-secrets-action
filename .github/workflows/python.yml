@@ -25,3 +25,17 @@ jobs:
           yapf -dr ghsa
           safety check -r requirements.txt
         working-directory: python/
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v1
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt -r test-requirements.txt
+        working-directory: python/
+      - name: pytest
+        run: |
+          pytest -v
+        working-directory: python/
