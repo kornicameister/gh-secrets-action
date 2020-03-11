@@ -11,6 +11,7 @@ name: Docker
 
 env:
   IMAGE_NAME: kornicameister/gh-secrets-action
+  DOCKER_BUILDKIT: 1
 
 jobs:
   lint:
