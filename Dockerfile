@@ -26,7 +26,9 @@ FROM build AS prod
 RUN apk add --no-cache tini=0.18.0-r0
 
 WORKDIR /app
+
 ENV PYTHONPATH=/app
+ENV PYTHONOPTIMIZE=2
 
 COPY --from=build /app/ghsa ./ghsa
 COPY entrypoint.sh ./entrypoint.sh
