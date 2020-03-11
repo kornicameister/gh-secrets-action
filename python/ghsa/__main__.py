@@ -2,8 +2,8 @@
 import base64
 import typing as t
 
-import requests as r
 from nacl import encoding, public
+import requests as r
 
 
 def main(
