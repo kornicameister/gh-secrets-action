@@ -1,4 +1,4 @@
-FROM python:3.8-alpine3.10 as base
+FROM python:3.8-alpine3.10 AS base
 
 RUN pip install --upgrade pip==20.0.1
 COPY python/ghsa ./ghsa
@@ -22,6 +22,9 @@ RUN pip install -r ./requirements.txt && rm -rf ./requirements.txt
 RUN apk del build_dependencies && rm -rf /root/.cache
 
 FROM build AS prod
+
+LABEL "maintainer"="kornicameister <kornicameister@gmail.com>"
+LABEL "repository"="https://github.com/kornicameister/gh-secrets-action/"
 
 RUN apk add --no-cache tini=0.18.0-r0
 
