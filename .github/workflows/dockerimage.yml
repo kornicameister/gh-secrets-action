@@ -42,6 +42,13 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           snapshot: true
           tags: "latest"
+      - name: Run latest action
+        uses: ./
+        with:
+          gh-token: ${{ secrets.GH_PA_TOKEN }}  
+          gh-repository: kornicameister/gh-secrets-action
+          gh-secrets: |
+            foo: bar
   release:
     runs-on: ubuntu-latest
     if: github.event_name == 'release'
