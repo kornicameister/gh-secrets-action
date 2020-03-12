@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
 python -m ghsa \
-  "${1}" \
-  --repo "${2}" \
-  --token "${3}"
+  "${INPUT_GH-TOKEN}" \
+  --repo "${INPUT_GH-REPOSITORY}" \
+  --token "${INPUT_GH-SECRETS}"
