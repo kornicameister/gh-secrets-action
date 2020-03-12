@@ -3,17 +3,17 @@ name: Action
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: ./
-      with:
-        gh-token: ${{ secrets.GH_PA_TOKEN }}  
-        gh-repository: kornicameister/gh-secrets-action
-        gh-secrets: |
-          foo: bar
-          car: dar
+      - uses: actions/checkout@v2
+      - uses: ./
+        with:
+          gh-token: ${{ secrets.GH_PA_TOKEN }}
+          gh-repository: kornicameister/gh-secrets-action
+          gh-secrets: |
+            foo: bar
+            car: dar

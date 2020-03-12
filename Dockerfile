@@ -34,6 +34,7 @@ ENV PYTHONPATH=/app
 ENV PYTHONOPTIMIZE=2
 
 COPY --from=build /app/ghsa ./ghsa
+COPY entrypoint.sh ./entrypoint.sh
 
 ENTRYPOINT ["/sbin/tini", "--"]
-CMD ["python", "-m", "ghsa"]
+CMD ["./entrypoint.sh"]

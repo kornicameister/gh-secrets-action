@@ -30,8 +30,8 @@ runs:
   image: Dockerfile
   args:
     - ${{ inputs.gh-secrets }}
-    - --repo ${{ inputs.gh-repository }}
-    - --token ${{ inputs.gh-token }}
+    - ${{ inputs.gh-repository }}
+    - ${{ inputs.gh-token }}
 
 branding:
   icon: "shield"
