@@ -33,8 +33,8 @@ WORKDIR /app
 ENV PYTHONPATH=/app
 ENV PYTHONOPTIMIZE=2
 
+COPY ./entrypoint.sh ./
 COPY --from=build /app/ghsa ./ghsa
-COPY entrypoint.sh ./entrypoint.sh
 
 ENTRYPOINT ["/sbin/tini", "--"]
 CMD ["./entrypoint.sh"]
