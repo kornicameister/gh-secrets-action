@@ -29,7 +29,6 @@ WORKDIR /app
 ENV PYTHONPATH=/app
 
 COPY --from=build /app/ghsa ./ghsa
-COPY entrypoint.sh ./entrypoint.sh
 
 ENTRYPOINT ["/sbin/tini", "--"]
-CMD ["./entrypoint.sh"]
+CMD ["python", "-m", "ghsa"]

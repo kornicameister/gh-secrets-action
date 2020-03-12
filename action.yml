@@ -5,32 +5,33 @@ description: |
   Ideal to setup some dynamic credentials in CI jobs :)
 inputs:
   gh-repository:
-    required: False
+    required: false
     description: |
       Repository where secrets ought to be updated. This is an optional
       parameter and, if not set, it defaults to current repository.
   gh-token:
-    required: True
+    required: true
     description: |
       Due to the scope of a token accessible in Github Actions
       context, a personal access token is required to make this action work.
 
       This token should be have at least `repo` scope.
   gh-secrets:
-    required: False
+    required: false
     description: |
       key: value map where:
         key - a name of the secret, as visible in Github's secrets page
         value - a value for that secret
-      This parameter can remain empty if necessary. For instance you are building 
-      those secrets elsewhere and due to busines logic you ended up with empty set.
+      This parameter can remain empty if necessary. For instance you
+      are building those secrets elsewhere and due to busines logic
+      you ended up with empty set.
 runs:
   using: docker
   image: Dockerfile
   args:
-    - ${{ inputs.gh-repository }}
-    - ${{ inputs.gh-token }}
     - ${{ inputs.gh-secrets }}
+    - --repo ${{ inputs.gh-repository }}
+    - --token ${{ inputs.gh-token }}
 
 branding:
   icon: "shield"
