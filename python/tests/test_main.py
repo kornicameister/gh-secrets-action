@@ -11,7 +11,7 @@ def test_no_secrets(mocker: ptm.MockFixture) -> None:
         mocker.patch('sys.exit'),
     )
 
-    main({}, mocker.ANY, mocker.ANY)
+    main({}, gh_token=mocker.ANY, gh_repository=mocker.ANY)
 
     assert not get_encryption_key.called
     assert not encrypt_using_key.called
@@ -38,8 +38,8 @@ def test_secrets(mocker: ptm.MockFixture) -> None:
             'a': '1',
             'b': '2',
         },
-        'repo',
-        'token',
+        gh_token='token',
+        gh_repository='repo',
     )
 
     get_encryption_key.assert_called_once_with('repo', 'token')

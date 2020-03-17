@@ -11,7 +11,7 @@ import requests as r
 
 def main(
         secrets: t.Dict[str, str],
-        *, 
+        *,
         gh_repository: str,
         gh_token: str,
 ) -> None:
