@@ -90,7 +90,12 @@ def get_encryption_key(
 
 if __name__ == '__main__':
     import argparse
-    import json
+    from ruamel.yaml import YAML
+
+    yaml = YAML(
+        typ='safe',
+        pure=True,
+    )
 
     parser = argparse.ArgumentParser(
         prog='gh-secrets-action',
@@ -99,7 +104,7 @@ if __name__ == '__main__':
             'wish against a repo of your choice'
         ),
     )
-    parser.add_argument('secrets', type=json.loads)
+    parser.add_argument('secrets', type=yaml.load)
     parser.add_argument('--repo', type=str, required=True)
     parser.add_argument('--token', type=str, required=True)
 
