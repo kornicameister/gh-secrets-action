@@ -16,6 +16,17 @@ inputs:
       context, a personal access token is required to make this action work.
 
       This token should be have at least `repo` scope.
+  secrets:
+    required: true
+    description: |
+      Yaml-like flat document that contains all of secrets you wish to have set inside of
+      repo's secrets.
+      
+      Due to limitation in Github Action this argument needs to be passed with `>` operator like so:
+      secrets: >
+        a: 1
+        b: 1
+       where a and b stands for secret's name.
 runs:
   using: docker
   image: Dockerfile
