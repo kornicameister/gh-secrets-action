@@ -93,10 +93,12 @@ if __name__ == '__main__':
     import argparse
     from ruamel.yaml import YAML
 
+    # configure yaml loader
     yaml = YAML(
-        typ='safe',
+        typ='base',
         pure=True,
     )
+    yaml.allow_duplicate_keys = False
 
     parser = argparse.ArgumentParser(
         prog='gh-secrets-action',
