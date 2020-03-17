@@ -14,6 +14,6 @@ jobs:
         with:
           gh-token: ${{ secrets.GH_PA_TOKEN }}
           gh-repository: kornicameister/gh-secrets-action
-          gh-secrets: |
+          gh-secrets: >
             foo: bar
             car: dar
