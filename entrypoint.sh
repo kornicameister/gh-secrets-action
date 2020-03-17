@@ -3,6 +3,6 @@
 env | grep -i INPUT
 
 python -m ghsa \
-  "${INPUT_GH-TOKEN}" \
+  "${INPUT_GH-SECRETS}" \
   --repo "${INPUT_GH-REPOSITORY:-$GITHUB_REPOSITORY}" \
-  --token "${INPUT_GH-SECRETS}"
+  --token "${INPUT_GH-TOKEN}"
