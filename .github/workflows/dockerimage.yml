@@ -54,7 +54,7 @@ jobs:
         if: github.event_name == 'push'
         uses: elgohr/Publish-Docker-Github-Action@2.13
         with:
-          name: ${{ env.IMAGE_VERSION_NEXT }}
+          name: ${{ env.IMAGE_NAME }}
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           tag_semver: true
