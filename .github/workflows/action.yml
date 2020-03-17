@@ -14,5 +14,6 @@ jobs:
         with:
           repository: kornicameister/gh-secrets-action
           token: ${{ secrets.GH_PA_TOKEN }}
-          secret-a: 1
-          secret-b: 2
+          secrets: >
+            a: 1
+            b: 2
