@@ -12,8 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./
         with:
-          gh-token: ${{ secrets.GH_PA_TOKEN }}
-          gh-repository: kornicameister/gh-secrets-action
-          gh-secrets: >
-            foo: bar
-            car: dar
+          repository: kornicameister/gh-secrets-action
+          token: ${{ secrets.GH_PA_TOKEN }}
+          secret-a: 1
+          secret-b: 2
