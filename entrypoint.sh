@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 
-echo $@
-env
+env | grep -i INPUT_SECRET-
 
 python -m ghsa \
   "${INPUT_GH-SECRETS}" \
