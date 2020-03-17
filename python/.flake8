@@ -4,7 +4,7 @@ show-source = True
 
 select = E,F,W,C,I,B,S,T,Q
 per-file-ignores =
-    test*.py:S101
+    test*.py:S101,S106
 
 import-order-style=appnexus
 application-package-names=ghsa

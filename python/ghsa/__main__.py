@@ -11,6 +11,7 @@ import requests as r
 
 def main(
         secrets: t.Dict[str, str],
+        *,
         gh_repository: str,
         gh_token: str,
 ) -> None:
@@ -90,7 +91,14 @@ def get_encryption_key(
 
 if __name__ == '__main__':
     import argparse
-    import json
+    from ruamel.yaml import YAML
+
+    # configure yaml loader
+    yaml = YAML(
+        typ='base',
+        pure=True,
+    )
+    yaml.allow_duplicate_keys = False
 
     parser = argparse.ArgumentParser(
         prog='gh-secrets-action',
@@ -99,7 +107,7 @@ if __name__ == '__main__':
             'wish against a repo of your choice'
         ),
     )
-    parser.add_argument('secrets', type=json.loads)
+    parser.add_argument('secrets', type=yaml.load)
     parser.add_argument('--repo', type=str, required=True)
     parser.add_argument('--token', type=str, required=True)
 
@@ -109,7 +117,7 @@ if __name__ == '__main__':
         sys.exit(1)
     else:
         main(
-            args.stack_output,
+            args.secrets,
             gh_repository=args.repo,
             gh_token=args.token,
         )
