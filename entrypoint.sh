@@ -1,8 +1,10 @@
 #!/usr/bin/env sh
 
-env | grep -i INPUT
+set -ax
+
+env | grep -i INPUT_SECRET_
 
 python -m ghsa \
   "${INPUT_GH-SECRETS}" \
-  --repo "${INPUT_GH-REPOSITORY:-$GITHUB_REPOSITORY}" \
-  --token "${INPUT_GH-TOKEN}"
+  --repo "${INPUT_REPOSITORY:-$GITHUB_REPOSITORY}" \
+  --token "${INPUT_TOKEN}"
