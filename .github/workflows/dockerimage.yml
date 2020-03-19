@@ -47,9 +47,6 @@ jobs:
     if: github.event_name == 'release'
     steps:
       - uses: actions/checkout@v2
-      - name: Pull latest
-        run: |
-          docker pull ${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION_LATEST }}
       - name: Build & Publish latest
         uses: docker/build-push-action@v1
         with:
