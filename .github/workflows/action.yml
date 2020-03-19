@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Test local
-        if: github.event_name == 'pull_request' or github.event_name == 'push'
+        if: github.event_name == 'pull_request' || github.event_name == 'push'
         uses: ./
         with:
           repository: kornicameister/gh-secrets-action
