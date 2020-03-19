@@ -34,14 +34,14 @@ jobs:
             --tag ${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION_NEXT }} \
             .
       - name: Build & Publish latest
-        uses: elgohr/Publish-Docker-Github-Action@2.13
         if: github.event_name == 'push'
+        uses: docker/build-push-action@v1
         with:
-          name: ${{ env.IMAGE_NAME }}
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          snapshot: true
-          tags: "latest"
+          repository: ${{ env.IMAGE_NAME }}
+          tags: latest
+          tag_with_sha: true
   release:
     runs-on: ubuntu-latest
     if: github.event_name == 'release'
@@ -50,11 +50,11 @@ jobs:
       - name: Pull latest
         run: |
           docker pull ${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION_LATEST }}
-      - name: Build & Publish release
-        if: github.event_name == 'push'
-        uses: elgohr/Publish-Docker-Github-Action@2.13
+      - name: Build & Publish latest
+        uses: docker/build-push-action@v1
         with:
-          name: ${{ env.IMAGE_NAME }}
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          tag_semver: true
+          repository: ${{ env.IMAGE_NAME }}
+          tag_with_ref: true
+          push: ${{ startsWith(github.ref, 'refs/tags/') }}
