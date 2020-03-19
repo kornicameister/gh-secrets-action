@@ -33,6 +33,13 @@ Now image that you can deal with that declaratively using Github Action ;-).
 
 And that's it. All configuration keys are required apart from `repository` that defaults to repository currently using action.
 
+## Why secrets are passed as string?
+
+That is actually because of a Github Action's limitation in area of syntax.
+There is no way to pass in an object as an argument. 
+A choice of syntaxt was dictated by the fact that it is quite simple to 
+take this string and load it up as `YAML`.
+
 ## Need of a PAT ?
 
 `PUT`-ing secrets to Github API requires a `repo` access which is not supplied in already available token.
