@@ -29,12 +29,12 @@ jobs:
           secrets: |
             a: 1
             b: 2
-      - name: Test latest@hub.docker.com
+      - name: Test @master
         if: github.event_name == 'schedule'
-        uses: kornicameister/gh-secrets-action:latest
+        uses: kornicameister/gh-secrets-action@master
         with:
           repository: kornicameister/gh-secrets-action
           token: ${{ secrets.GH_PA_TOKEN }}
           secrets: |
-            c: 1
-            d: 2
+            e: 5
+            f: 6
