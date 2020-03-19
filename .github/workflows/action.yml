@@ -2,18 +2,39 @@
 name: Action
 
 "on":
+  push:
+    branches: 
+     - master
+    paths-ignore: 
+      - '**/*.md'
   pull_request:
-    branches: [master]
+    branches: 
+     - master
+    paths-ignore: 
+      - '**/*.md'
+  schedule:
+    - cron: '0 0 */1 * *'
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./
+      - name: Test local
+        if: github.event_name == 'pull_request' || github.event_name == 'push'
+        uses: ./
         with:
           repository: kornicameister/gh-secrets-action
           token: ${{ secrets.GH_PA_TOKEN }}
           secrets: |
             a: 1
             b: 2
+      - name: Test @master
+        if: github.event_name == 'schedule'
+        uses: kornicameister/gh-secrets-action@master
+        with:
+          repository: kornicameister/gh-secrets-action
+          token: ${{ secrets.GH_PA_TOKEN }}
+          secrets: |
+            e: 5
+            f: 6
