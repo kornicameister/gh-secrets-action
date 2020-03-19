@@ -2,6 +2,12 @@
 
 Github Action that let's you update your repositories secrets.
 
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/kornicameister/gh-secrets-action/Docker)
+![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/kornicameister/gh-secrets-action)
+![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/kornicameister/gh-secrets-action/latest/master)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=kornicameister/gh-secrets-action)](https://dependabot.com)
+[![License](https://img.shields.io/github/license/kornicameister/gh-secrets-action.svg)](https://github.com/kornicameister/gh-secrets-action/blob/master/LICENSE)
+
 ## Rationale
 
 Imagine a case where you are in a desparete need of having some `secrets` deployed to your repositories?
