@@ -10,10 +10,10 @@ import requests as r
 
 
 def main(
-        secrets: t.Dict[str, str],
-        *,
-        gh_repository: str,
-        gh_token: str,
+    secrets: t.Dict[str, str],
+    *,
+    gh_repository: str,
+    gh_token: str,
 ) -> None:
     if not secrets:
         sys.exit(0)
@@ -37,11 +37,11 @@ def main(
 
 
 def upload_secret(
-        gh_repository: str,
-        gh_token: str,
-        encryption_key_id: str,
-        secret_name: str,
-        secret_value: str,
+    gh_repository: str,
+    gh_token: str,
+    encryption_key_id: str,
+    secret_name: str,
+    secret_value: str,
 ) -> None:
     # PUT /repos/:owner/:repo/actions/secrets/:name
     r.put(
@@ -60,8 +60,8 @@ def upload_secret(
 
 
 def encrypt_using_key(
-        value: str,
-        key: str,
+    value: str,
+    key: str,
 ) -> str:
     sealed_box = public.SealedBox(
         public.PublicKey(
@@ -75,8 +75,8 @@ def encrypt_using_key(
 
 
 def get_encryption_key(
-        gh_repo: str,
-        gh_token: str,
+    gh_repo: str,
+    gh_token: str,
 ) -> t.Tuple[str, str]:
     # GET /repos/:owner/:repo/actions/secrets/public-key
     public_key = r.get(
