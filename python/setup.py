@@ -11,9 +11,7 @@ __url__ = 'https://github.com/kornicameister/gh-secrets-action'
 __min_python__ = (3, 8)
 
 if sys.version_info < __min_python__:
-    raise RuntimeError(
-        f'{__title__}:{__version__} requires Python 3.8 or newer',
-    )
+    raise RuntimeError(f'{__title__}:{__version__} requires Python 3.8 or newer', )
 
 setuptools.setup(
     setup_requires='setupmeta',
