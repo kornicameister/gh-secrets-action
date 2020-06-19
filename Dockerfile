@@ -11,7 +11,7 @@ RUN apk --update \
         libc-dev=0.7.2-r3 \
         libressl-dev=3.1.2-r0 \
         libffi-dev=3.3-r2 \
-        python3-dev=3.8.3-r0
+        python3-dev=3.7.7-r0
 
 WORKDIR /app
 
