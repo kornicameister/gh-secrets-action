@@ -16,7 +16,7 @@ If that's not enough, imagine that you have 30 secrets like that spreaded throug
 
 You with me?
 
-Now image that you can deal with that declaratively using Github Action ;-).
+Now imagine that you can deal with that declaratively using Github Action ;-).
 
 ## Usage
 
@@ -52,8 +52,8 @@ If someone wants that...just create an issue ;-)
 
 ## Imporant note
 
-  THIS REPOSITORY DOES NOT ANYTHING THAT IT SHOULD NOT DO.
-  IT WILL CREATE OR UPDATE SECRETS IN DESIGNATED REPISOTORY AND STOP AT IT.
+  THIS REPOSITORY DOES NOT DO ANYTHING THAT IT SHOULD NOT DO.
+  IT WILL CREATE OR UPDATE SECRETS IN DESIGNATED REPISOTORY AND STOP AT THERE.
   
 If, however, someone notices that something is going on that is not exactly correct, I strongly suggest
 **create an issue**. I would like to avoid harming anyone through this action.
