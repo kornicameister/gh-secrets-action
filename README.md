@@ -52,7 +52,7 @@ If someone wants that...just create an issue ;-)
 
 ## Imporant note
 
-  THIS REPOSITORY DOES NOT ANYTHING THAT IT SHOULD NOT DO.
+  THIS REPOSITORY DOES NOT DO ANYTHING THAT IT SHOULD NOT DO.
   IT WILL CREATE OR UPDATE SECRETS IN DESIGNATED REPISOTORY AND STOP AT IT.
   
 If, however, someone notices that something is going on that is not exactly correct, I strongly suggest
