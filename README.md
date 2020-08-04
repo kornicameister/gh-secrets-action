@@ -16,7 +16,7 @@ If that's not enough, imagine that you have 30 secrets like that spreaded throug
 
 You with me?
 
-Now image that you can deal with that declaratively using Github Action ;-).
+Now imagine that you can deal with that declaratively using Github Action ;-).
 
 ## Usage
 
