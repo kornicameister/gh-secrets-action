@@ -6,6 +6,7 @@ Github Action that let's you update your repositories secrets.
 ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/kornicameister/gh-secrets-action)
 ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/kornicameister/gh-secrets-action/latest/master)
 [![License](https://img.shields.io/github/license/kornicameister/gh-secrets-action.svg)](https://github.com/kornicameister/gh-secrets-action/blob/master/LICENSE)
+[![time tracker](https://wakatime.com/badge/github/kornicameister/gh-secrets-action.svg)](https://wakatime.com/badge/github/kornicameister/gh-secrets-action)
 
 ## Rationale
 
