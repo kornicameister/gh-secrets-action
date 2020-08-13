@@ -9,7 +9,7 @@ RUN apk --update \
     add --no-cache --virtual build_dependencies \
         alpine-sdk=1.0-r0 \
         libc-dev=0.7.2-r3 \
-        libressl-dev=3.1.3-r0 \
+        libressl-dev=3.1.2-r0 \
         libffi-dev=3.3-r2 \
         python3-dev=3.8.5-r0
 
