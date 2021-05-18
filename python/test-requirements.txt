@@ -1,4 +1,4 @@
-setupmeta==3.1.0
+setupmeta==3.2.0
 
 -r requirements/yapf.txt
 -r requirements/mypy.txt
