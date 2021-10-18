@@ -10,7 +10,7 @@ jobs:
   Lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
       - uses: actions/setup-python@v2.2.2
       - name: Install dependencies
         run: |
@@ -28,7 +28,7 @@ jobs:
   Test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
       - uses: actions/setup-python@v2.2.2
       - name: Install dependencies
         run: |
